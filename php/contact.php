@@ -32,6 +32,8 @@
 
 <section class="mb-4">
 
+  <h1>hello</h1>
+
     <h2 class="h1-responsive font-weight-bold text-center my-4 ">Me contacter</h2>
     <p class="text-center w-responsive mx-auto mb-5">Si vous avez la moindre question, n'hésitez-pas à me contacter directement grâce au formulaire ou mes coordonnées ci-dessous.</p>
 
