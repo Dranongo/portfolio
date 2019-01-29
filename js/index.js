@@ -499,18 +499,9 @@ vertex3d.prototype = {
 		};
 	};
 	var textSet = [
-		{text:"WEBSPHERE", sphereRadius:140, sphereSpace:80, unitTime:100, time:1000},
-		{text:"THIS_IS", sphereRadius:120, sphereSpace:70, unitTime:120, time:4000},
-		{text:"EXPERIMENTAL", sphereRadius:120, sphereSpace:70, unitTime:50, time:2000},
-		{text:"TYPEFACE", sphereRadius:120, sphereSpace:70, unitTime:100, time:4000},
-		{text:"BASED_ON", sphereRadius:100, sphereSpace:60, unitTime:100, time:3000},
-		{text:"HELVETICA", sphereRadius:140, sphereSpace:80, unitTime:100, time:2000},
-		{text:"@@@@@@@@", sphereRadius:60 + Math.random()*60, sphereSpace:200, unitTime:100, time:4000},
-		{text:"MOVABLE", sphereRadius:120, sphereSpace:70, unitTime:100, time:2000},
-		{text:"AND", sphereRadius:100, sphereSpace:60, unitTime:150, time:3500},
-		{text:"PROGRAMABLE", sphereRadius:120, sphereSpace:70, unitTime:50, time:2000},
-		{text:"!!!!!!!", sphereRadius:100, sphereSpace:60, unitTime:100, time:3500},
-		{text:"HACK_ME!", sphereRadius:140, sphereSpace:80, unitTime:100, time:2500},
+		{text:"BIENVENUE", sphereRadius:140, sphereSpace:80, unitTime:100, time:1000},
+		{text:"SUR_MON", sphereRadius:120, sphereSpace:70, unitTime:120, time:4000},
+		{text:"PORTFOLIO", sphereRadius:120, sphereSpace:70, unitTime:50, time:2000},
 		{text:"@@@@@@@@", sphereRadius:60 + Math.random()*60, sphereSpace:200, unitTime:100, time:4000}
 	];
 	
