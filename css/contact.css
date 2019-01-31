@@ -5,6 +5,10 @@ body, html {
 	position: relative;
 }
 
+#navigation{
+    z-index: 9999;
+}
+
 #formulaire{
 	position: absolute;
 	z-index: 9999;

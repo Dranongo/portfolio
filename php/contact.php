@@ -42,13 +42,13 @@
          	<div class="col-md-6">
            	<div class="md-form mb-0">
              	<label for="name" class="">Votre nom</label>
-             	<input type="text" id="name" class="form-control">
+             	<input type="text" id="name" class="form-control" required autofocus>
            	</div>
         	</div>
           <div class="col-md-6">
          	  <div class="md-form mb-0">
               <label for="email" class="">Votre e-mail</label>
-              <input type="text" id="email" class="form-control">
+              <input type="text" id="email" class="form-control" value required>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
          	<div class="col-md-12">
             <div class="md-form mb-0">
             	<label for="subject" class="">Objet</label>                            
-              <input type="text" id="subject" class="form-control">
+              <input type="text" id="subject" class="form-control" required>
            	</div>
           </div>
         </div>
