@@ -5,6 +5,10 @@ body, html {
 	position: relative;
 }
 
+#formulaire{
+	position: absolute;
+	z-index: 9999;
+}
 
 #particles-js{
     width: 100%;
