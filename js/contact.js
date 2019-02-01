@@ -1,5 +1,50 @@
+/*$nom = $_POST["name"]; 
+$email = $_POST["email"]; 
+$object = $_POST["object"]; 
 
-      $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js", function () {
+//Insertion de données 
+$bd=connect_bd(); 
+if($bd<>0) 
+{ 
+
+    $requete="insert into messsage VALUES ('', '".$nom."','".$email."','".$object."')"; 
+    $resultat=@mysql_query($requete,$bd); 
+}*/
+
+
+
+
+
+
+
+
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false && validateEmail("email") === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    //validateEmail("email");
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    function validateEmail(id){
+        var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+        if (!email_regex.test($("#" + id).val())) {
+            return false;
+        }
+        return true;
+    }
+
+    $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js", function () {
         particlesJS('particles-js',
             {
                 "particles": {

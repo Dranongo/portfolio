@@ -3,6 +3,7 @@
     $email = "";
     $message = "";
     $subject = "";
+    $content = "";
 
     $emailTo = "maximilien.fonteyn@gmail.com";
 
@@ -11,7 +12,7 @@
             $email = $_POST['email'];
         }
 
-        if (isset($_POST['name'])) {
+        if (isset($_POST['name']) && trim($_POST['name']) !== '') {
             $name = $_POST['name'];
         }
 
@@ -19,12 +20,29 @@
             $subject = $_POST['subject'];
         }
 
-        if (isset($_POST['message'])) {
-            $message = $_POST['message'];
+        if (isset($_POST['content'])) {
+            $content = $_POST['content'];
         }
-
-        mail($emailTo, $subject, $message, "From:" .$email);
+        //mail($emailTo, $subject, $message, "From:" .$email);
     }
+
+try {
+  $bdd = new PDO('mysql:host=localhost;dbname=portfolio;charset=utf8', 'root', '');
+
+  $req = $bdd->prepare('INSERT into contact(name, email, subject, content, submission_date) VALUES(:name, :email, :subject, :content, :submission_date)');
+  $req->execute(array(
+    'name' => $name,
+    'email' => $email,
+    'subject' => $subject,
+    'content' => $content,
+    'submission_date' => date("Y-m-d H:i:s")
+  ));
+}
+catch (Exception $e) {
+  die('Erreur : ' .$e->getMessage());
+}
+
+
 ?>
 
 <?php require('../include/header.php'); ?>
@@ -37,18 +55,20 @@
 
 	<div class="row container-fluid" id="formulaire">
     <div class="col-md-9 mb-md-0 mb-5">
-      <form role="form" id="contacForm" name="contactForm" action="contact.php" method="POST">
+      <form class="needs-validation" novalidate role="form" id="contacForm" name="contactForm" action="contact.php" method="post">
        	<div class="row">
          	<div class="col-md-6">
            	<div class="md-form mb-0">
              	<label for="name" class="">Votre nom</label>
-             	<input type="text" id="name" class="form-control" required autofocus>
+             	<input type="text" id="form-name" class="form-control" name="name" required>
+              <div class="invalid-feedback">Veuillez renseigner un nom</div>
            	</div>
         	</div>
           <div class="col-md-6">
          	  <div class="md-form mb-0">
               <label for="email" class="">Votre e-mail</label>
-              <input type="text" id="email" class="form-control" value required>
+              <input type="text" id="form-email" class="form-control" name="email" required>
+              <div class="invalid-feedback">Veuillez renseigner un email</div>
             </div>
           </div>
         </div>
@@ -56,8 +76,9 @@
         <div class="row">
          	<div class="col-md-12">
             <div class="md-form mb-0">
-            	<label for="subject" class="">Objet</label>                            
-              <input type="text" id="subject" class="form-control" required>
+            	<label for="subject" class="">Objet</label>
+              <input type="text" id="form-subject" class="form-control" name="subject" required>
+              <div class="invalid-feedback">Veuillez renseigner un objet</div>
            	</div>
           </div>
         </div>
@@ -65,8 +86,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="md-form">
-              <label for="message">Votre message</label>
-              <textarea type="text" id="message" rows="2" class="form-control md-textarea"></textarea>
+              <label for="content">Votre message</label>
+              <textarea type="text" id="form-content" name="content" rows="2" class="form-control md-textarea required"></textarea>
+              <div class="invalid-feedback">Veuillez renseigner un contenu</div>
             </div>
           </div>
         </div>
